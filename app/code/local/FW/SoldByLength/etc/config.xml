@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @category    FW
+ * @package     FW_SoldByLength
+ * @copyright   Copyright (c) 2015 F+W (http://www.fwcommunity.com)
+ * @author		Mike Godfrey <mike.godfrey@fwmedia.com>
+ * @author      J.P. Daniel <jp.daniel@fwcommunity.com>
+ */
+-->
+<config>
+	<modules>
+		<FW_SoldByLength>
+			<version>0.1.0</version>
+		</FW_SoldByLength>
+	</modules>
+	<global>
+		<blocks>
+			<catalog>
+				<rewrite>
+					<product_view>FW_SoldByLength_Block_Product_View</product_view>
+				</rewrite>
+			</catalog>
+			<enterprise_checkout>
+				<rewrite>
+					<sku_products_info>FW_SoldByLength_Block_Sku_Products_Info</sku_products_info>
+				</rewrite>
+			</enterprise_checkout>
+		</blocks>
+		<models>
+			<fw_soldbylength>
+				<class>FW_SoldByLength_Model</class>
+			</fw_soldbylength>
+			<cataloginventory>
+				<rewrite>
+					<stock_item>FW_SoldByLength_Model_Stock_Item</stock_item>
+				</rewrite>
+			</cataloginventory>
+		</models>
+		<helpers>
+			<fw_soldbylength>
+				<class>FW_SoldByLength_Helper</class>
+			</fw_soldbylength>
+		</helpers>
+	</global>
+	<frontend>
+		<events>
+			<controller_action_predispatch_checkout_cart_advancedAdd>
+				<observers>
+					<fw_soldbylength_controller_action_predispatch_checkout_cart_advancedAdd>
+						<class>fw_soldbylength/observer</class>
+						<method>onCheckoutCartAdvancedAdd</method>
+					</fw_soldbylength_controller_action_predispatch_checkout_cart_advancedAdd>
+				</observers>
+			</controller_action_predispatch_checkout_cart_advancedAdd>
+		</events>
+	</frontend>
+</config> 

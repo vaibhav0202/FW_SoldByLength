@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FW_SoldByLength>
+            <active>true</active>
+            <codePool>local</codePool>
+        </FW_SoldByLength>
+    </modules>
+</config>
